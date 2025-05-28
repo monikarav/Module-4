@@ -1,65 +1,97 @@
-# Exp.No:18  
-## FILES - FREQUENCY OF CHARACTERS IN A FILE
+# Exp.No:20  
+## SEB - ARITHMETIC CALCULATION USING CLASS
 
 ---
 
 ### AIM  
-To write a Python program that reads a file and counts the frequency of each character in it.
+To write a Python program to perform addition and division operations using a class. The class should be named `Saveetha`, and the function names should be `setvalues` (to set `a` and `b` values), `add`, and `div`. The program should handle the following cases:  
+- `choice 1` → Perform addition  
+- `choice 2` → Perform division  
+- `choice 0` → Exit  
+- For other choices, print 'Invalid choice'
 
 ---
 
 ### ALGORITHM
 
 1. Begin the program.  
-2. Define the function `create_file()` that accepts two arguments:  
-   - `file_path`: The path to the file.  
-   - `content`: The string content to be written into the file.  
-3. Open the file specified by `file_path` in write mode (`'w'`), and write the provided `content` into the file.  
-4. Close the file (this is automatically done when exiting the `with` block).  
-5. Define the function `character_frequency()` that accepts one argument:  
-   - `file_path`: The path to the file whose character frequency is to be calculated.  
-6. Open the file specified by `file_path` in read mode (`'r'`), and read its content into the variable `content`.  
-7. Initialize an empty dictionary (`d1`) to store the frequency of each character using `defaultdict(int)`.  
-8. Loop through each character in the `content`:  
-   - For each character `ch`, increment its corresponding frequency in the dictionary `d1`.  
-9. Return the dictionary `d1`, which contains the frequency of each character in the file.  
-10. Terminate the program.
+2. Create a class `Saveetha`.  
+3. Define the following methods inside the `Saveetha` class:  
+   - `__init__(self)`: Initializes `a` and `b` to zero.  
+   - `setvalues(self, a, b)`: Sets the values of `a` and `b`.  
+   - `add(self)`: Performs the addition operation.  
+   - `div(self)`: Performs the division operation. If `b` is zero, returns an error message for division by zero.  
+4. Create a `main()` function.  
+5. Take input from the user for the values of `a` and `b` using `setvalues(a, b)` method.  
+6. Use a `while True` loop to repeatedly ask the user for a choice:  
+   - If the choice is 1, call the `add()` method and print the result.  
+   - If the choice is 2, call the `div()` method and print the result. Handle division by zero.  
+   - If the choice is 0, print "Exiting!" and exit the loop.  
+   - If the choice is not 1, 2, or 0, print "Invalid choice".  
+7. Terminate the program.
 
 ---
 
 ### PROGRAM
 ---
+
+### PROGRAM
+
 ```
-reg no: 212223060059
-Name : Dineshkumar K
+#Reg.NO-212223060059
+#Name-Dineshkumar K
 
-from collections import defaultdict
+class Saveetha:
+    def __init__(self):
+        self.a = 0
+        self.b = 0
 
-def create_file(file_path, content):
+    def setvalues(self, a, b):
+        self.a = a
+        self.b = b
 
-with open(file_path, 'w') as file:
+    def add(self):
+        return self.a + self.b
 
-   file.write(content)
-def char_frequency(file_path):
+    def div(self):
+        if self.b == 0:
+            return "Error: Division by zero is not allowed."
+        return self.a / self.b
 
-frequency=defaultdict(int)
+def main():
+    obj = Saveetha()
+    a = int(input("Enter value of a: "))
+    b = int(input("Enter value of b: "))
+    obj.setvalues(a, b)
 
-with open(file_path,"r") as f:
+    while True:
+        print("\nMenu:")
+        print("1. Addition")
+        print("2. Division")
+        print("0. Exit")
+        choice = int(input("Enter your choice: "))
 
-   content = f.read()
-    
-for i in content:
+        if choice == 1:
+            print("Result of addition:", obj.add())
+        elif choice == 2:
+            result = obj.div()
+            print("Result of division:", result)
+        elif choice == 0:
+            print("Exiting!")
+            break
+        else:
+            print("Invalid choice")
 
-   frequency[i]+=1
-    
-return frequency
+main()
+
+
+
+
 ```
----
+
 ### OUTPUT
-![image](https://github.com/user-attachments/assets/3a5cce20-0d2b-46c9-8c96-936a08972431)
-![image](https://github.com/user-attachments/assets/2b0b2c25-415a-415d-8f7f-21d65bf806ab)
-
+![image](https://github.com/user-attachments/assets/2525becc-2f2d-43af-984e-d34050a82329)
 
 
 ### RESULT
-Thus the Python program that reads a file and counts the frequency of each character in it was executed suxccessively.
+Thus,the Python program using the Saveetha class successfully performed addition and division based on user choice.
